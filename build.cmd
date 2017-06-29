@@ -1,0 +1,1 @@
+msbuild Ninject.sln /p:Configuration=Release /p:Platform="Any CPU"

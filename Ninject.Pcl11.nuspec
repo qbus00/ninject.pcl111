@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Ninject.PCL111</id>
+    <version>1.0-alpha1</version>
+    <title>Ninject PCL 111</title>
+    <authors>qbus00 - Jakub Kaprzyk porting to PCL111, Oren Novotny original author</authors>
+    <owners />
+    <licenseUrl>https://github.com/qbus00/ninject.pcl111/raw/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/qbus00/ninject.pcl111</projectUrl>
+
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+		This is a modification of Portable.Ninject (https://github.com/onovotny/ninject/) which is compiled in PCL 111 profile. 
+		It means that this library can be used both in PCL and .NET Standard libraries (which is not possible when using original Portable.Ninject). 
+		Another addition is LinkerPleaseInclude class which preserves the most important parts of Ninject which are normally removed in full linker mode because of reflection.
+    </description>
+    <summary>IoC container for .NET</summary>
+    <releaseNotes>Initial release with support for PCL profile 111, Android and iOS</releaseNotes>
+    <tags>Ninject ioc di portable pcl xamarin ios android monotouch monoandroid</tags>
+  </metadata>
+  <files>
+
+    <!-- PCL -->
+    <file src="src\Ninject\bin\PCL\Release\Ninject.dll" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Ninject.dll" />
+    <file src="src\Ninject\bin\PCL\Release\Ninject.pdb" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Ninject.pdb" />
+    <file src="src\Ninject\bin\PCL\Release\Ninject.xml" target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Ninject.xml" />
+
+    <!-- iOS Unified -->
+    <file src="src\Ninject\bin\iOS-Unified\Release\Ninject.dll" target="lib\Xamarin.iOS\Ninject.dll" />
+    <file src="src\Ninject\bin\iOS-Unified\Release\Ninject.pdb" target="lib\Xamarin.iOS\Ninject.pdb" />
+    <file src="src\Ninject\bin\iOS-Unified\Release\Ninject.xml" target="lib\Xamarin.iOS\Ninject.xml" />
+
+     <!-- Android --> 
+    <file src="src\Ninject\bin\Android\Release\Ninject.dll" target="lib\monoandroid\Ninject.dll" />
+    <file src="src\Ninject\bin\Android\Release\Ninject.pdb" target="lib\monoandroid\Ninject.pdb" />
+    <file src="src\Ninject\bin\Android\Release\Ninject.xml" target="lib\monoandroid\Ninject.xml" />
+
+
+    <file src="src\**\*.cs" target="src" exclude="src\_ReSharper.*\**\*.*;packages\**\*.*;src\**\Debug\**\*.*;" />
+  </files>
+</package>
