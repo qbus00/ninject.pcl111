@@ -9,19 +9,14 @@
 #endregion
 #region Using Directives
 using System;
-using System.Collections.Generic;
-using Ninject.Activation.Blocks;
-using Ninject.Parameters;
-using Ninject.Planning.Bindings;
-
 #endregion
 
 namespace Ninject
 {
     /// <summary>
-    /// A super-factory that can create objects of all kinds, following hints provided by <see cref="IBinding"/>s.
+    /// Indicates that the decorated member represents an optional dependency.
     /// </summary>
-    public interface IKernel : IKernelConfiguration, IReadonlyKernel
-    {
-    }
+    [AttributeUsage(AttributeTargets.Constructor | AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Parameter,
+        AllowMultiple = false, Inherited = true)]
+    public class OptionalAttribute : Attribute { }
 }

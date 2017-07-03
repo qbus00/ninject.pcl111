@@ -9,19 +9,18 @@
 #endregion
 #region Using Directives
 using System;
-using System.Collections.Generic;
-using Ninject.Activation.Blocks;
-using Ninject.Parameters;
-using Ninject.Planning.Bindings;
-
 #endregion
 
-namespace Ninject
+namespace Ninject.Infrastructure.Disposal
 {
     /// <summary>
-    /// A super-factory that can create objects of all kinds, following hints provided by <see cref="IBinding"/>s.
+    /// An object that can report whether or not it is disposed.
     /// </summary>
-    public interface IKernel : IKernelConfiguration, IReadonlyKernel
+    public interface IDisposableObject : IDisposable
     {
+        /// <summary>
+        /// Gets a value indicating whether this instance is disposed.
+        /// </summary>
+        bool IsDisposed { get; }
     }
 }

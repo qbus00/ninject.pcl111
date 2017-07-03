@@ -9,19 +9,15 @@
 #endregion
 #region Using Directives
 using System;
-using System.Collections.Generic;
-using Ninject.Activation.Blocks;
-using Ninject.Parameters;
-using Ninject.Planning.Bindings;
-
+using Ninject.Infrastructure.Disposal;
+using Ninject.Syntax;
 #endregion
 
-namespace Ninject
+namespace Ninject.Activation.Blocks
 {
     /// <summary>
-    /// A super-factory that can create objects of all kinds, following hints provided by <see cref="IBinding"/>s.
+    /// A block used for deterministic disposal of activated instances. When the block is
+    /// disposed, all instances activated via it will be deactivated.
     /// </summary>
-    public interface IKernel : IKernelConfiguration, IReadonlyKernel
-    {
-    }
+    public interface IActivationBlock : IResolutionRoot, INotifyWhenDisposed { }
 }

@@ -9,19 +9,19 @@
 #endregion
 #region Using Directives
 using System;
-using System.Collections.Generic;
-using Ninject.Activation.Blocks;
-using Ninject.Parameters;
-using Ninject.Planning.Bindings;
-
+using Ninject.Infrastructure.Disposal;
 #endregion
 
-namespace Ninject
+namespace Ninject.Components
 {
     /// <summary>
-    /// A super-factory that can create objects of all kinds, following hints provided by <see cref="IBinding"/>s.
+    /// A component that contributes to the internals of Ninject.
     /// </summary>
-    public interface IKernel : IKernelConfiguration, IReadonlyKernel
+    public abstract class NinjectComponent : DisposableObject, INinjectComponent
     {
+        /// <summary>
+        /// Gets or sets the settings.
+        /// </summary>
+        public INinjectSettings Settings { get; set; }
     }
 }

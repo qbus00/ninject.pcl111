@@ -9,19 +9,18 @@
 #endregion
 #region Using Directives
 using System;
-using System.Collections.Generic;
-using Ninject.Activation.Blocks;
-using Ninject.Parameters;
-using Ninject.Planning.Bindings;
-
 #endregion
 
 namespace Ninject
 {
     /// <summary>
-    /// A super-factory that can create objects of all kinds, following hints provided by <see cref="IBinding"/>s.
+    /// A service that requires initialization after it is activated.
     /// </summary>
-    public interface IKernel : IKernelConfiguration, IReadonlyKernel
+    public interface IInitializable
     {
+        /// <summary>
+        /// Initializes the instance. Called during activation.
+        /// </summary>
+        void Initialize();
     }
 }

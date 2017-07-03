@@ -9,19 +9,19 @@
 #endregion
 #region Using Directives
 using System;
-using System.Collections.Generic;
-using Ninject.Activation.Blocks;
-using Ninject.Parameters;
 using Ninject.Planning.Bindings;
-
 #endregion
 
-namespace Ninject
+namespace Ninject.Infrastructure
 {
     /// <summary>
-    /// A super-factory that can create objects of all kinds, following hints provided by <see cref="IBinding"/>s.
+    /// Indicates the object has a reference to a <see cref="IBinding"/>.
     /// </summary>
-    public interface IKernel : IKernelConfiguration, IReadonlyKernel
+    public interface IHaveBindingConfiguration
     {
+        /// <summary>
+        /// Gets the binding.
+        /// </summary>
+        IBindingConfiguration BindingConfiguration { get; }
     }
 }
