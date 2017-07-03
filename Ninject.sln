@@ -16,7 +16,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninject.Android", "src\Ninj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninject.iOS-Unified", "src\Ninject\Ninject.iOS-Unified.csproj", "{420ACA2A-7853-4C5D-A3B1-E7AE938A801F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninject.UWP", "src\Ninject.UWP\Ninject.UWP.csproj", "{BC91052D-BC54-4396-9D63-F5963DC71394}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninject.UWP", "src\Ninject\Ninject.UWP.csproj", "{BC91052D-BC54-4396-9D63-F5963DC71394}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

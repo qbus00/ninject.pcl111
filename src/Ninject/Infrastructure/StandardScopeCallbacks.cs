@@ -29,7 +29,7 @@ namespace Ninject.Infrastructure
         /// </summary>
         public static readonly Func<IContext, object> Singleton = ctx => ctx.Kernel;
 
-#if !PCL && !WINRT
+#if !PCL && !WINRT && !WINDOWS_UWP
         /// <summary>
         /// Gets the callback for thread scope.
         /// </summary>

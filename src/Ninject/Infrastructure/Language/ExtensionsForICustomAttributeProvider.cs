@@ -10,6 +10,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using Ninject.Planning.Targets;
 
 namespace Ninject.Infrastructure.Language
 {
@@ -22,7 +23,7 @@ namespace Ninject.Infrastructure.Language
 
     internal static class ExtensionsForICustomAttributeProvider
     {
-#if !WINRT
+#if !WINRT && !WINDOWS_UWP
 
         public static bool HasAttribute(this ICustomAttributeProvider member, Type type)
         {

@@ -11,7 +11,8 @@
 using System;
 using System.Reflection;
 using Ninject.Infrastructure;
-#if WINRT
+
+#if WINRT || WINDOWS_UWP
 using Ninject.Infrastructure.Language;
 using System.Collections.Generic;
 #endif
@@ -24,7 +25,7 @@ namespace Ninject.Planning.Targets
     /// Represents an injection target for a <see cref="ParameterInfo"/>.
     /// </summary>
     public class ParameterTarget :
-#if !WINRT
+#if !WINRT && !WINDOWS_UWP
         Target<ParameterInfo>
 #else
         Target
@@ -49,7 +50,7 @@ namespace Ninject.Planning.Targets
         }
 
 // Windows Phone doesn't support default values and returns null instead of DBNull.
-#if !WINDOWS_PHONE 
+#if !WINDOWS_PHONE
         /// <summary>
         /// Gets a value indicating whether the target has a default value.
         /// </summary>
@@ -60,7 +61,7 @@ namespace Ninject.Planning.Targets
 #if PCL
             throw new NotImplementedException();
 #else
-#if WINRT
+#if WINRT || WINDOWS_UWP
                 var val = defaultValue.Value;
 
                 if (val != null)
@@ -94,19 +95,19 @@ namespace Ninject.Planning.Targets
         /// <param name="method">The method that defines the parameter.</param>
         /// <param name="site">The parameter that this target represents.</param>
         public ParameterTarget(MethodBase method, ParameterInfo site) : base(method
-#if !WINRT
+#if !WINRT && !WINDOWS_UWP
             , site
 #endif
             )
         {
             defaultValue = new Future<object>(() => site.DefaultValue);
 
-#if WINRT
+#if WINRT || WINDOWS_UWP
             Site = site;
 #endif
         }
 
-#if WINRT
+#if WINRT || WINDOWS_UWP
 
         public ParameterInfo Site { get; private set; }
 

@@ -18,7 +18,6 @@
 //   limitations under the License.
 // </copyright>
 //-------------------------------------------------------------------------------
-
 #if !NO_ASSEMBLY_SCANNING
 namespace Ninject.Modules
 {
@@ -27,10 +26,9 @@ namespace Ninject.Modules
     using System.IO;
     using System.Linq;
     using System.Reflection;
-
     using Ninject.Components;
 
-#if WINRT
+#if WINRT || WINDOWS_UWP
     using System.Threading.Tasks;
 #endif
 
@@ -46,7 +44,7 @@ namespace Ninject.Modules
         /// <param name="filter">The filter.</param>
         /// <returns>All assembly names of the assemblies in the given files that match the filter.</returns>
         public
-#if !WINRT
+#if !WINRT && !WINDOWS_UWP
         IEnumerable<AssemblyName> 
 #else
  System.Threading.Tasks.Task<IEnumerable<AssemblyName>>
@@ -56,7 +54,7 @@ namespace Ninject.Modules
 #if PCL
             throw new NotImplementedException();
 #else
-#if !WINRT
+#if !WINRT && !WINDOWS_UWP
             var assemblyCheckerType = typeof(AssemblyChecker);
             var temporaryDomain = CreateTemporaryAppDomain();
             try
@@ -71,7 +69,7 @@ namespace Ninject.Modules
                 return checker.GetAssemblyListAsync(filenames.ToArray(), filter);
 #endif
 
-#if !WINRT
+#if !WINRT && !WINDOWS_UWP
             }
             finally
             {
@@ -82,7 +80,7 @@ namespace Ninject.Modules
         }
 
 #if !PCL
-#if !WINRT
+#if !WINRT && !WINDOWS_UWP
         /// <summary>
         /// Creates a temporary app domain.
         /// </summary>
@@ -147,11 +145,6 @@ namespace Ninject.Modules
 #else
         private sealed class AssemblyCheckerWinRT
         {
-            //public IEnumerable<AssemblyName> GetAssemblyNames(IEnumerable<string> filenames, Predicate<Assembly> filter)
-            //{
-            //    return GetAssemblyListAsync(filenames, filter).Result;
-            //}
-
             public async Task<IEnumerable<AssemblyName>> GetAssemblyListAsync(IEnumerable<string> filenames, Predicate<Assembly> filter)
             {
                 var folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
@@ -190,7 +183,7 @@ namespace Ninject.Modules
 
                     if (filter(assembly))
                     {
-#if !WINRT
+#if !WINRT && !WINDOWS_UWP
                         result.Add(assembly.GetName());
 #else
                         result.Add(new AssemblyName() {Name = assembly.GetName().Name});
