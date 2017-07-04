@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Ninject.PCL111</id>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <title>Ninject PCL 111</title>
     <authors>qbus00 - Jakub Kaprzyk porting to PCL111, Oren Novotny original author</authors>
     <owners />
@@ -14,12 +14,11 @@
     <description>
 		This is a modification of Portable.Ninject (https://github.com/onovotny/ninject/) which is compiled in PCL 111 profile and based on v3.3.1.
 		It means that this library can be used both in PCL and .NET Standard libraries (which is not possible when using original Portable.Ninject). 
-		Another addition is LinkerPleaseInclude class which preserves the most important parts of Ninject which are normally removed in full linker mode because of reflection.
 		Supported platforms: iOS, Android, UWP
     </description>
     <summary>IoC container for .NET</summary>
-    <releaseNotes>First stable release with support for iOS, Android and UWP</releaseNotes>
-    <tags>Ninject ioc di portable pcl xamarin ios android monotouch monoandroid uwp uap10</tags>
+    <releaseNotes>Small improvements</releaseNotes>
+    <tags>Ninject ioc di portable pcl xamarin ios android monotouch monoandroid uwp</tags>
   </metadata>
   <files>
 
@@ -38,10 +37,10 @@
     <file src="src\Ninject\bin\Android\Release\Ninject.pdb" target="lib\monoandroid\Ninject.pdb" />
     <file src="src\Ninject\bin\Android\Release\Ninject.xml" target="lib\monoandroid\Ninject.xml" />
 
-	<!-- UWP -->
-	<file src="src\Ninject\bin\UWP\Release\Ninject.dll" target="lib\uap10.0\Ninject.dll" />
-	<file src="src\Ninject\bin\UWP\Release\Ninject.pdb" target="lib\uap10.0\Ninject.pdb" />
-	<file src="src\Ninject\bin\UWP\Release\Ninject.xml" target="lib\uap10.0\Ninject.xml" />
+	  <!-- UWP -->
+	  <file src="src\Ninject\bin\UWP\Release\Ninject.dll" target="lib\uap10.0\Ninject.dll" />
+	  <file src="src\Ninject\bin\UWP\Release\Ninject.pdb" target="lib\uap10.0\Ninject.pdb" />
+	  <file src="src\Ninject\bin\UWP\Release\Ninject.xml" target="lib\uap10.0\Ninject.xml" />
 	
   </files>
 </package>

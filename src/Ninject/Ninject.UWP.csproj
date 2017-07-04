@@ -189,7 +189,6 @@
     <Compile Include="IStartable.cs" />
     <Compile Include="KernelBase.cs" />
     <Compile Include="KernelConfiguration.cs" />
-    <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Modules\AssemblyNameRetriever.cs" />
     <Compile Include="Modules\CompiledModuleLoaderPlugin.cs" />
     <Compile Include="Modules\IAssemblyNameRetriever.cs" />
@@ -247,6 +246,7 @@
     <Compile Include="Planning\Targets\Target.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadonlyKernel.cs" />
+    <Compile Include="SampleLinkerPleaseInclude.cs" />
     <Compile Include="Selection\Heuristics\IConstructorScorer.cs" />
     <Compile Include="Selection\Heuristics\IInjectionHeuristic.cs" />
     <Compile Include="Selection\Heuristics\SpecificConstructorSelector.cs" />
