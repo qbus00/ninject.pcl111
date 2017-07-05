@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Ninject.PCL111</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <title>Solidbrain Ninject</title>
     <authors>qbus00 - Jakub Kaprzyk porting to PCL111, Oren Novotny original author</authors>
     <owners />
@@ -17,8 +16,13 @@
 		Supported platforms: iOS, Android, UWP
     </description>
     <summary>IoC container for .NET</summary>
-    <releaseNotes>.NET Standard 1.4 version</releaseNotes>
+    <releaseNotes>Added missing dependency for .NET Standard</releaseNotes>
     <tags>Ninject ioc di portable pcl xamarin ios android monotouch monoandroid uwp netstandard</tags>
+	<dependencies>
+		<group targetFramework="netstandard0.0">
+			<dependency id="Microsoft.Extensions.DependencyInjection" version="1.1.1"/>
+		</group>
+	</dependencies>
   </metadata>
   <files>
 
