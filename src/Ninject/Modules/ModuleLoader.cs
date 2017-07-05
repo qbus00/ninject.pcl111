@@ -39,7 +39,7 @@ namespace Ninject.Modules
         {
             KernelConfiguration = kernelConfiguration;
         }
-#if !PCL
+#if !PCL && !NETSTANDARD1_4
         /// <summary>
         /// Loads any modules found in the files that match the specified patterns.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Ninject.Modules
 #endif
             LoadModules(IEnumerable<string> patterns)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             var plugins = KernelConfiguration.Components.GetAll<IModuleLoaderPlugin>();
@@ -80,7 +80,7 @@ namespace Ninject.Modules
         }
 #endif
 
-#if !PCL
+#if !PCL && !NETSTANDARD1_4
 #if WINRT || WINDOWS_UWP
         private static string GetExtension(string filename)
         {

@@ -47,7 +47,7 @@ namespace Ninject.Syntax
         /// <returns>The fluent syntax.</returns>
         IBindingNamedWithOrOnSyntax<T> InTransientScope();
 
-#if !WINRT && !PCL && !WINDOWS_UWP
+#if !WINRT && !PCL && !WINDOWS_UWP && !NETSTANDARD1_4
         /// <summary>
         /// Indicates that instances activated via the binding should be re-used within the same thread.
         /// </summary>

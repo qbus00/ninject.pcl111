@@ -89,12 +89,12 @@ namespace Ninject.Activation.Caching
         /// <param name="instance">The instance to be added.</param>
         public void AddActivatedInstance(object instance)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             lock (this.activatedObjects)
             {
-#if WINDOWS_PHONE || MONO || PCL || WINDOWS_UWP
+#if WINDOWS_PHONE || MONO || PCL || WINDOWS_UWP || NETSTANDARD1_4
                 this.activatedObjects.Add(new ReferenceEqualWeakReference(instance), true);
 #else
                 this.activatedObjects.Add(new ReferenceEqualWeakReference(instance));
@@ -109,12 +109,12 @@ namespace Ninject.Activation.Caching
         /// <param name="instance">The instance to be added.</param>
         public void AddDeactivatedInstance(object instance)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             lock (this.deactivatedObjects)
             {
-#if WINDOWS_PHONE || MONO || PCL || WINDOWS_UWP
+#if WINDOWS_PHONE || MONO || PCL || WINDOWS_UWP || NETSTANDARD1_4
                 this.deactivatedObjects.Add(new ReferenceEqualWeakReference(instance), true);
 #else
                 this.deactivatedObjects.Add(new ReferenceEqualWeakReference(instance));
@@ -132,10 +132,10 @@ namespace Ninject.Activation.Caching
         /// </returns>
         public bool IsActivated(object instance)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
-#if WINDOWS_PHONE || MONO || PCL || WINDOWS_UWP
+#if WINDOWS_PHONE || MONO || PCL || WINDOWS_UWP || NETSTANDARD1_4
             return this.activatedObjects.ContainsKey(instance);
 #else
             return this.activatedObjects.Contains(instance);
@@ -152,10 +152,10 @@ namespace Ninject.Activation.Caching
         /// </returns>
         public bool IsDeactivated(object instance)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
-#if WINDOWS_PHONE || MONO || PCL || WINDOWS_UWP
+#if WINDOWS_PHONE || MONO || PCL || WINDOWS_UWP || NETSTANDARD1_4
             return this.deactivatedObjects.ContainsKey(instance);
 #else
             return this.deactivatedObjects.Contains(instance);
@@ -168,7 +168,7 @@ namespace Ninject.Activation.Caching
         /// </summary>
         public void Prune()
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             lock (this.activatedObjects)
@@ -183,7 +183,7 @@ namespace Ninject.Activation.Caching
 #endif
         }
 
-#if WINDOWS_PHONE || MONO || PCL || WINDOWS_UWP
+#if WINDOWS_PHONE || MONO || PCL || WINDOWS_UWP || NETSTANDARD1_4
         /// <summary>
         /// Removes all dead objects.
         /// </summary>

@@ -27,7 +27,7 @@ namespace Ninject.Planning.Targets
     /// <typeparam name="T">The type of site this represents.</typeparam>
 #if !WINRT && !WINDOWS_UWP
     public abstract class Target<T> : ITarget
-#if !PCL
+#if !PCL && !NETSTANDARD1_4
         where T : ICustomAttributeProvider
 #endif
 #else
@@ -140,7 +140,7 @@ namespace Ninject.Planning.Targets
             ;
 #else
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             return Site.GetCustomAttributesExtended(attributeType, inherit);
@@ -164,7 +164,7 @@ namespace Ninject.Planning.Targets
             ;
 #else
         {
-            #if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             return Site.GetCustomAttributes(inherit).Cast<Attribute>();
@@ -187,7 +187,7 @@ namespace Ninject.Planning.Targets
             ;
 #else
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             return Site.IsDefined(attributeType, inherit);
@@ -278,7 +278,7 @@ namespace Ninject.Planning.Targets
             ;
 #else
         {
-            #if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             return Site.HasAttribute(typeof(OptionalAttribute));

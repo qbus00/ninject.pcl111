@@ -32,16 +32,16 @@ namespace Ninject
     /// </summary>
     public abstract class GlobalKernelRegistration
     {
-#if !WINRT && !PCL && !WINDOWS_UWP
+#if !WINRT && !PCL && !WINDOWS_UWP && !NETSTANDARD1_4
         private static readonly ReaderWriterLock kernelRegistrationsLock = new ReaderWriterLock();
-#elif !PCL
+#elif !PCL && !NETSTANDARD1_4
         private static readonly ReaderWriterLockSlim kernelRegistrationsLock = new ReaderWriterLockSlim();
 #endif
         private static readonly IDictionary<Type, Registration> kernelRegistrations = new Dictionary<Type, Registration>(); 
 
         internal static void RegisterKernelForType(IReadonlyKernel kernel, Type type)
         {
- #if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             var registration = GetRegistrationForType(type);
@@ -67,7 +67,7 @@ namespace Ninject
 
         internal static void UnregisterKernelForType(IReadonlyKernel kernel, Type type)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             var registration = GetRegistrationForType(type);
@@ -81,7 +81,7 @@ namespace Ninject
         /// <param name="action">The action.</param>
         protected void MapKernels(Action<IReadonlyKernel> action)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             bool requiresCleanup = false;
@@ -126,7 +126,7 @@ namespace Ninject
         
         private static void RemoveKernels(Registration registration, IEnumerable<WeakReference> references)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
 #if !WINRT && !WINDOWS_UWP
@@ -154,7 +154,7 @@ namespace Ninject
 
         private static Registration GetRegistrationForType(Type type)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
 #if !WINRT && !WINDOWS_UWP
@@ -185,7 +185,7 @@ namespace Ninject
 
         private static Registration CreateNewRegistration(Type type)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
 #if !WINRT && !WINDOWS_UWP
@@ -218,7 +218,7 @@ namespace Ninject
 
         private class Registration
         {
-#if !PCL
+#if !PCL && !NETSTANDARD1_4
             public Registration()
             {
 #if !WINRT && !WINDOWS_UWP

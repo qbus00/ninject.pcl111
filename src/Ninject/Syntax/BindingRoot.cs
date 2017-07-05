@@ -49,7 +49,7 @@ namespace Ninject.Syntax
         /// <returns>The fluent syntax</returns>
         public IBindingToSyntax<T> Bind<T>()
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             Type service = typeof(T);
@@ -69,7 +69,7 @@ namespace Ninject.Syntax
         /// <returns>The fluent syntax</returns>
         public IBindingToSyntax<T1, T2> Bind<T1, T2>()
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             var firstBinding = new Binding(typeof(T1));
@@ -90,7 +90,7 @@ namespace Ninject.Syntax
         /// <returns>The fluent syntax</returns>
         public IBindingToSyntax<T1, T2, T3> Bind<T1, T2, T3>()
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             var firstBinding = new Binding(typeof(T1));
@@ -113,7 +113,7 @@ namespace Ninject.Syntax
         /// <returns>The fluent syntax</returns>
         public IBindingToSyntax<T1, T2, T3, T4> Bind<T1, T2, T3, T4>()
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             var firstBinding = new Binding(typeof(T1));
@@ -134,7 +134,7 @@ namespace Ninject.Syntax
         /// <returns>The fluent syntax</returns>
         public IBindingToSyntax<object> Bind(params Type[] services)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             Ensure.ArgumentNotNull(services, "service");

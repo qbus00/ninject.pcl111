@@ -51,7 +51,7 @@ namespace Ninject.Modules
 #endif
             GetAssemblyNames(IEnumerable<string> filenames, Predicate<Assembly> filter)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
 #if !WINRT && !WINDOWS_UWP
@@ -79,7 +79,7 @@ namespace Ninject.Modules
 #endif
         }
 
-#if !PCL
+#if !PCL && !NETSTANDARD1_4
 #if !WINRT && !WINDOWS_UWP
         /// <summary>
         /// Creates a temporary app domain.

@@ -57,9 +57,9 @@ namespace Ninject.Planning.Targets
         public override bool HasDefaultValue
         {
             get 
-            { 
-#if PCL
-            throw new NotImplementedException();
+            {
+#if PCL || NETSTANDARD1_4
+                throw new NotImplementedException();
 #else
 #if WINRT || WINDOWS_UWP
                 var val = defaultValue.Value;

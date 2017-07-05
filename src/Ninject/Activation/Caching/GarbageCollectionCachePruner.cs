@@ -44,7 +44,7 @@ namespace Ninject.Activation.Caching
 #else
         private ThreadPoolTimer timer;
 #endif
-#if !PCL
+#if !PCL && !NETSTANDARD1_4
         private bool stop;
 #endif
 
@@ -85,7 +85,7 @@ namespace Ninject.Activation.Caching
         /// </summary>
         public void Stop()
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             lock (this)
@@ -110,7 +110,7 @@ namespace Ninject.Activation.Caching
 
         private void PruneCacheIfGarbageCollectorHasRun(object state)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             lock (this)

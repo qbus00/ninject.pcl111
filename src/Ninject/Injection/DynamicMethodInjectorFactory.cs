@@ -11,7 +11,7 @@
 #region Using Directives
 using System;
 using System.Reflection;
-#if !PCL
+#if !PCL && !NETSTANDARD1_4
 using System.Reflection.Emit;
 #endif
 using Ninject.Components;
@@ -31,7 +31,7 @@ namespace Ninject.Injection
         /// <returns>The created injector.</returns>
         public ConstructorInjector Create(ConstructorInfo constructor)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             #if SILVERLIGHT
@@ -65,7 +65,7 @@ namespace Ninject.Injection
         /// <returns>The created injector.</returns>
         public PropertyInjector Create(PropertyInfo property)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             #if NO_SKIP_VISIBILITY
@@ -108,7 +108,7 @@ namespace Ninject.Injection
         /// <returns>The created injector.</returns>
         public MethodInjector Create(MethodInfo method)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             #if NO_SKIP_VISIBILITY
@@ -134,7 +134,7 @@ namespace Ninject.Injection
 #endif
         }
 
-#if !PCL
+#if !PCL && !NETSTANDARD1_4
         private static void EmitLoadMethodArguments(ILGenerator il, MethodBase targetMethod)
         {
             ParameterInfo[] parameters = targetMethod.GetParameters();

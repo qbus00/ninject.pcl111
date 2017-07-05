@@ -432,7 +432,7 @@ namespace Ninject.Planning.Bindings
             return this;
         }
 
-#if !PCL && !WINRT && !WINDOWS_UWP
+#if !PCL && !WINRT && !WINDOWS_UWP && !NETSTANDARD1_4
         /// <summary>
         /// Indicates that instances activated via the binding should be re-used within the same thread.
         /// </summary>

@@ -84,7 +84,7 @@ namespace Ninject.Modules
 #endif
             LoadModules(IEnumerable<string> filenames)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             var assembliesWithModules = 

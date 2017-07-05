@@ -8,6 +8,7 @@ using System.Security;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-
+#if !NETSTANDARD1_4
 [assembly: AssemblyDescriptionAttribute("IoC container")]
+#endif
 //[assembly: SecurityTransparent]

@@ -21,7 +21,7 @@ namespace Ninject.Modules
     /// </summary>
     public interface IModuleLoader : INinjectComponent
     {
-#if !PCL // PCL can't contain this method as the signature differs
+#if !PCL && !NETSTANDARD1_4 // PCL can't contain this method as the signature differs
         /// <summary>
         /// Loads any modules found in the files that match the specified patterns.
         /// </summary>

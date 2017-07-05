@@ -173,7 +173,7 @@ namespace Ninject
         /// <param name="filePatterns">The file patterns (i.e. "*.dll", "modules/*.rb") to match.</param>
         public void Load(IEnumerable<string> filePatterns)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             this.kernelConfiguration.Load(filePatterns);
@@ -373,7 +373,7 @@ namespace Ninject
 
         /// <inheritdoc />
         public object GetService(Type serviceType)
-                            {
+        {
             return this.ReadonlyKernel.GetService(serviceType);
         }
     }

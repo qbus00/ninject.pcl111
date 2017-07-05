@@ -37,9 +37,9 @@ namespace Ninject.Planning
     /// </summary>
     public class Planner : NinjectComponent, IPlanner
     {
-#if !WINRT && !PCL && !WINDOWS_UWP
+#if !WINRT && !PCL && !WINDOWS_UWP && !NETSTANDARD1_4
         private readonly ReaderWriterLock plannerLock = new ReaderWriterLock();
-#elif !PCL
+#elif !PCL && !NETSTANDARD1_4
         private readonly ReaderWriterLockSlim plannerLock = new ReaderWriterLockSlim();
 #endif
         private readonly Dictionary<Type, IPlan> plans = new Dictionary<Type, IPlan>();
@@ -65,7 +65,7 @@ namespace Ninject.Planning
         /// <returns>The type's activation plan.</returns>
         public IPlan GetPlan(Type type)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             
@@ -108,7 +108,7 @@ namespace Ninject.Planning
         /// <returns>The newly created plan.</returns>
         private IPlan CreateNewPlan(Type type)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
 #if !WINRT && !WINDOWS_UWP

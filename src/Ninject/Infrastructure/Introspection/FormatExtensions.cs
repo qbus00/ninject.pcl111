@@ -107,7 +107,7 @@ namespace Ninject.Infrastructure.Introspection
         /// <returns>The request formatted as string.</returns>
         public static string Format(this IRequest request)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             using (var sw = new StringWriter())
@@ -166,7 +166,7 @@ namespace Ninject.Infrastructure.Introspection
         /// <returns>The target formatted as string.</returns>
         public static string Format(this ITarget target)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             using (var sw = new StringWriter())
@@ -212,7 +212,7 @@ namespace Ninject.Infrastructure.Introspection
         /// <returns>The type formatted as string.</returns>
         public static string Format(this Type type)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             var friendlyName = GetFriendlyName(type);
@@ -320,7 +320,7 @@ namespace Ninject.Infrastructure.Introspection
 
         private static void AppendGenericArguments(StringBuilder sb, Type[] genericArguments, int start, int count)
         {
-#if PCL
+#if PCL || NETSTANDARD1_4
             throw new NotImplementedException();
 #else
             sb.Append("{");
