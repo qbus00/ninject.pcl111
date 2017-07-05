@@ -55,9 +55,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SharedAssemblyInfo.cs">
-      <Link>Properties\SharedAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="ActivationException.cs" />
     <Compile Include="Activation\Blocks\ActivationBlock.cs" />
     <Compile Include="Activation\Blocks\IActivationBlock.cs" />
@@ -208,6 +205,7 @@
     <Compile Include="Selection\Heuristics\StandardInjectionHeuristic.cs" />
     <Compile Include="Selection\ISelector.cs" />
     <Compile Include="Selection\Selector.cs" />
+    <Compile Include="SharedAssemblyInfo.cs" />
     <Compile Include="StandardKernel.cs" />
     <Compile Include="Syntax\BindingRoot.cs" />
     <Compile Include="Syntax\IBindingInNamedWithOrOnSyntax.cs" />

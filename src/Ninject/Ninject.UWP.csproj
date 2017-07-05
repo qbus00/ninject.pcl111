@@ -254,6 +254,7 @@
     <Compile Include="Selection\Heuristics\StandardInjectionHeuristic.cs" />
     <Compile Include="Selection\ISelector.cs" />
     <Compile Include="Selection\Selector.cs" />
+    <Compile Include="SharedAssemblyInfo.cs" />
     <Compile Include="StandardKernel.cs" />
     <Compile Include="Syntax\BindingRoot.cs" />
     <Compile Include="Syntax\IBindingInNamedWithOrOnSyntax.cs" />
@@ -299,6 +300,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Ninject.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Runtime">
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\Profile\Profile111\System.Runtime.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
