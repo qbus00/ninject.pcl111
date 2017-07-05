@@ -6,11 +6,30 @@ using Ninject.Syntax;
 
 namespace Ninject
 {
-    using Ninject.Selection;
-
+#if NETSTANDARD1_4
     /// <summary>
     /// A kernel that is used to resolve instances and has a configuration that can't be changed anymore
     /// </summary>
+    public interface IReadonlyKernel :
+        IResolutionRoot, IHaveNinjectSettings, IDisposableObject
+    {
+        /// <summary>
+        /// Gets the bindings registered for the specified service.
+        /// </summary>
+        /// <param name="service">The service in question.</param>
+        /// <returns>A series of bindings that are registered for the service.</returns>
+        IEnumerable<IBinding> GetBindings(Type service);
+
+        /// <summary>
+        /// </summary>
+        /// <param name="serviceType"></param>
+        /// <returns></returns>
+        object GetService(Type serviceType);
+    }
+#else 
+/// <summary>
+/// A kernel that is used to resolve instances and has a configuration that can't be changed anymore
+/// </summary>
     public interface IReadonlyKernel :
         IResolutionRoot, IHaveNinjectSettings, IServiceProvider, IDisposableObject
     {
@@ -21,4 +40,5 @@ namespace Ninject
         /// <returns>A series of bindings that are registered for the service.</returns>
         IEnumerable<IBinding> GetBindings(Type service);
     }
+#endif
 }
