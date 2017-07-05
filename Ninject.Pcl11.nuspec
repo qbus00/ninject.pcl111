@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Ninject.PCL111</id>
-    <version>1.0.2</version>
+    <version>1.0.1.6</version>
     <title>Ninject PCL 111</title>
     <authors>qbus00 - Jakub Kaprzyk porting to PCL111, Oren Novotny original author</authors>
     <owners />
@@ -13,12 +13,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
 		This is a modification of Portable.Ninject v3.3.1 (https://github.com/onovotny/ninject/) compatible with PCL profile 111 and .NET Standard 1.4.
-		It means that this library can be used both in PCL and .NET Standard libraries (which is not possible when using original Portable.Ninject). 
 		Supported platforms: iOS, Android, UWP
     </description>
     <summary>IoC container for .NET</summary>
     <releaseNotes>.NET Standard 1.4 version</releaseNotes>
-    <tags>Ninject ioc di portable pcl xamarin ios android monotouch monoandroid uwp</tags>
+    <tags>Ninject ioc di portable pcl xamarin ios android monotouch monoandroid uwp netstandard</tags>
   </metadata>
   <files>
 
@@ -43,10 +42,10 @@
 	  <file src="src\Ninject\bin\UWP\Release\Ninject.xml" target="lib\uap10.0\Ninject.xml" />
 	  
 	  <!-- .NET Standard 1.4 -->
-	  <file src="src\Ninject\bin\netstandard1.4\Release\netstandard1.4\Ninject.Standard.dll" target="lib\netstandard1.4\Ninject.Standard.dll" />
-	  <file src="src\Ninject\bin\netstandard1.4\Release\netstandard1.4\Ninject.Standard.pdb" target="lib\netstandard1.4\Ninject.Standard.pdb" />
-	  <file src="src\Ninject\bin\netstandard1.4\Release\netstandard1.4\Ninject.Standard.xml" target="lib\netstandard1.4\Ninject.Standard.xml" />
-	  <file src="src\Ninject\bin\netstandard1.4\Release\netstandard1.4\Ninject.Standard.deps.json" target="lib\netstandard1.4\Ninject.Standard.deps.json" />
+	  <file src="src\Ninject\bin\netstandard1.4\Release\netstandard1.4\Ninject.dll" target="lib\netstandard1.4\Ninject.dll" />
+	  <file src="src\Ninject\bin\netstandard1.4\Release\netstandard1.4\Ninject.pdb" target="lib\netstandard1.4\Ninject.pdb" />
+	  <file src="src\Ninject\bin\netstandard1.4\Release\netstandard1.4\Ninject.xml" target="lib\netstandard1.4\Ninject.xml" />
+	  <file src="src\Ninject\bin\netstandard1.4\Release\netstandard1.4\Ninject.deps.json" target="lib\netstandard1.4\Ninject.deps.json" />
 	
   </files>
 </package>

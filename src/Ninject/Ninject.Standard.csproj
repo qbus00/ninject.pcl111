@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <RootNamespace>Ninject</RootNamespace>
+    <AssemblyName>Ninject</AssemblyName>
     <TargetFramework>netstandard1.4</TargetFramework>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>Ninject.snk</AssemblyOriginatorKeyFile>
@@ -9,7 +11,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\netstandard1.4\Release\</OutputPath>
-    <DocumentationFile>bin\netstandard1.4\Release\Ninject.Standard.XML</DocumentationFile>
+    <DocumentationFile>bin\netstandard1.4\Release\Ninject.XML</DocumentationFile>
     <DefineConstants>TRACE;RELEASE;NO_EXCEPTION_SERIALIZATION;NETSTANDARD1_4</DefineConstants>
   </PropertyGroup>
 
