@@ -3,8 +3,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Ninject.PCL111</id>
-    <version>1.0.1.6</version>
-    <title>Ninject PCL 111</title>
+    <version>1.0.2</version>
+    <title>Solidbrain Ninject</title>
     <authors>qbus00 - Jakub Kaprzyk porting to PCL111, Oren Novotny original author</authors>
     <owners />
     <licenseUrl>https://github.com/qbus00/ninject.pcl111/raw/master/LICENSE.txt</licenseUrl>
@@ -12,7 +12,8 @@
 	<iconUrl>https://github.com/onovotny/ninject/raw/master/logos/Ninject-Logo32.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-		This is a modification of Portable.Ninject v3.3.1 (https://github.com/onovotny/ninject/) compatible with PCL profile 111 and .NET Standard 1.4.
+		This is a modification of Portable.Ninject v3.3.1 (https://github.com/onovotny/ninject/) compatible with PCL profile 111, .NET Standard 1.4, iOS and Android.
+		Modification has been done with help from solidbrain.com. Thanks!
 		Supported platforms: iOS, Android, UWP
     </description>
     <summary>IoC container for .NET</summary>
